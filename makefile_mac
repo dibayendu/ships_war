@@ -1,0 +1,24 @@
+###########################################################################
+# Full Name			: Dibayendu Narayan Dey
+# Student Number	: S 3224807
+# Course			: COSC1186/1187 Interactive 3D and Graphics  animation
+# Program			: BP096
+###########################################################################
+
+Assignment1: water.o obj.o
+	gcc -o water water.o obj.o -framework Carbon -framework OpenGL -framework GLUT -std=c99
+
+water.o: water.c water.h
+	gcc -c water.c -framework Carbon -framework OpenGL -framework GLUT -std=c99
+
+obj.o: obj.c obj.h uthash.h
+	gcc -c obj.c -framework Carbon -framework OpenGL -framework GLUT -std=c99
+
+clean:
+	rm -f *.o water core 3224807_assignment1.zip
+
+run:
+	./water
+
+archive:
+	zip 3224807_assignment1.zip water.c water.h obj.c obj.h uthash.h galleon.obj makefile readme.txt
